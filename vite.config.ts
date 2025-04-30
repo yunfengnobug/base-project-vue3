@@ -1,18 +1,39 @@
 import { fileURLToPath, URL } from 'node:url'
-
-import { defineConfig } from 'vite'
+import { loadEnv, type ConfigEnv, type UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import { wrapperEnv } from './src/utils/environment'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+export default ({ mode }: ConfigEnv): UserConfigExport => {
+  const env: any = wrapperEnv(loadEnv(mode, process.cwd()))
+  console.log('当前环境变量：', env)
+
+  const plugins = [vue(), vueDevTools()]
+
+  // 只在生成报告时添加 visualizer 插件
+  if (process.env.ANALYZE) {
+    plugins.push(
+      visualizer({
+        open: true,
+        gzipSize: true,
+        brotliSize: true,
+        filename: 'dist/stats.html',
+      }),
+    )
+  }
+
+  return {
+    base: './',
+    server: {
+      host: true,
     },
-  },
-})
+    plugins,
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
+    },
+  }
+}
