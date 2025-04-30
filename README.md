@@ -2,7 +2,8 @@
 
 快速搭建一个带有基础配置的 vue3 项目。
 npm create vue@latest 【创建时的Node 版本：v22.14.0 ,不做强制版本要求，自行适配即可，仓库源为淘宝源：https://registry.npmmirror.com/】
-本项目主要做了：
+
+### 本项目主要做了：
 
 1. 移除了默认的hello world页面和初始文件，新增了少量的reset.css，可自行修改
 2. 提供vscode编辑器可用的 vue 文件生成模板，样式默认为scss，可自行修改
