@@ -1,39 +1,40 @@
-# base-project-vue3
+# 项目介绍
 
-This template should help get you started developing with Vue 3 in Vite.
+快速搭建一个带有基础配置的 vue3 项目。
+npm create vue@latest 【创建时的Node 版本：v22.14.0 ,不做强制版本要求，自行适配即可，仓库源为淘宝源：https://registry.npmmirror.com/】
+本项目主要做了：
 
-## Recommended IDE Setup
+1. 移除了默认的hello world页面和初始文件，新增了少量的reset.css，可自行修改
+2. 提供vscode编辑器可用的 vue 文件生成模板，样式默认为scss，可自行修改
+3. 修改了部分环境变量的处理逻辑和项目启动命令
+4. dayjs的引入，默认为中文语言配置
+5. 生产环境自动移除console
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+# Project Setup
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+### 安装依赖
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 项目启动（不同环境）
 
 ```sh
 npm run dev
+npm run prod
 ```
 
-### Type-Check, Compile and Minify for Production
+### 打包构建
 
 ```sh
-npm run build
+npm run build:dev
+npm run build:prod
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### 打包构建后分析
 
 ```sh
-npm run lint
+npm run report:dev
+npm run report:prod
 ```
