@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { loadEnv, type ConfigEnv, type UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import { wrapperEnv } from './src/utils/environment'
+import { wrapperEnv } from './build/utils'
 import { visualizer } from 'rollup-plugin-visualizer'
 import removeConsole from 'vite-plugin-remove-console'
 // https://vite.dev/config/
