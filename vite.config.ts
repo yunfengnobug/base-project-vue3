@@ -29,7 +29,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
   }
 
   return {
-    base: './',
+    base: env.VITE_BASE_PATH,
     server: {
       host: true,
     },

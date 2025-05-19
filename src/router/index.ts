@@ -1,7 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter } from 'vue-router'
+import { historyMode } from './historyMode'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: historyMode,
   routes: [
     {
       path: '/',
