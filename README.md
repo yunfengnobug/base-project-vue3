@@ -10,6 +10,8 @@ npm create vue@latest 【创建时的Node 版本：v22.14.0 ,不做强制版本�
 3. 修改了部分环境变量的处理逻辑和项目启动命令
 4. dayjs的引入，默认为中文语言配置
 5. 生产环境自动移除console
+6. 路由模式和路径自定义（historyMode）,可在 .env 中修改
+7. 封装了 axios 请求封装，并在首页进行了粗略描述
 
 # Project Setup
 
