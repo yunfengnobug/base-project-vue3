@@ -1,12 +1,12 @@
 import { fileURLToPath, URL } from 'node:url'
-import { loadEnv, type ConfigEnv, type UserConfigExport } from 'vite'
+import { loadEnv, defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { wrapperEnv } from './build/utils'
 import { visualizer } from 'rollup-plugin-visualizer'
 import removeConsole from 'vite-plugin-remove-console'
 // https://vite.dev/config/
-export default ({ mode }: ConfigEnv): UserConfigExport => {
+export default defineConfig(({ mode }) => {
   const env: any = wrapperEnv(loadEnv(mode, process.cwd()))
   console.log('当前环境变量：', env)
 
@@ -40,4 +40,4 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       },
     },
   }
-}
+})
